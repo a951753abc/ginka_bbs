@@ -1,0 +1,9 @@
+{
+  "name": "ginka_bbs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test.mjs",
+    "serve": "npx -y http-server -c-1 -p 8080"
+  }
+}
