@@ -71,6 +71,8 @@ test('parseBodyTokens: 純文字／全形＞＞／非錨點的 >', () => {
 test('seed.json: 形狀與長度規範', async () => {
   const seed = JSON.parse(await readFile(new URL('./seed.json', import.meta.url), 'utf8'));
   const gameNow = parseGameTime(seed.gameNow);
+  assert.equal(seed.gameNow, '2002-01-12T12:00');
+  assert.equal(formatGameTime(gameNow), '02/01/12(六) 12:00');
   let totalPosts = 0;
   let sagePosts = 0;
   let anchorPosts = 0;
@@ -88,7 +90,7 @@ test('seed.json: 形狀與長度規範', async () => {
       if (/(?:>>|＞＞)\d{1,4}/.test(p.body)) anchorPosts += 1;
       if (p.name === 'あぼーん' && p.body === 'あぼーん') tombstones += 1;
       assert.ok(p.name.length <= 30 && p.mail.length <= 30, t.tid);
-      assert.ok(p.idStr.length <= 12, t.tid);
+      assert.ok(p.idStr.length <= 12 && p.idStr !== '???', t.tid);
       assert.ok(p.body.length <= 1000 && !p.body.includes('\r'), t.tid);
       const ms = parseGameTime(p.gameTime);
       assert.ok(ms >= prev, t.tid + ' 貼文時間需遞增');
