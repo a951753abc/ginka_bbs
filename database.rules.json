@@ -1,0 +1,25 @@
+{
+  "rules": {
+    "meta": {
+      ".read": "auth != null",
+      ".write": "auth.uid === 'GM_UID'"
+    },
+    "threadSummaries": {
+      ".read": "auth != null",
+      ".write": "auth.uid === 'GM_UID'",
+      "$tid": {
+        ".write": "auth != null"
+      }
+    },
+    "threadPosts": {
+      ".read": "auth != null",
+      ".write": "auth.uid === 'GM_UID'",
+      "$tid": {
+        ".indexOn": "realTs",
+        "$postKey": {
+          ".write": "auth != null && !data.exists()"
+        }
+      }
+    }
+  }
+}

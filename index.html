@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>銀歌市靈異板</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div id="banner" hidden></div>
+  <div id="fatal" hidden></div>
+
+  <header class="board-banner">
+    <h1>銀歌市靈異板</h1>
+    <p class="tagline">＠ぎんうた・ちゃんねる　［ローカル・オカルト］</p>
+  </header>
+
+  <nav class="nav">
+    <a href="#">板首</a><span class="nav-sep">｜</span><span class="nav-count">黄昏どきは逢魔が時。</span>
+  </nav>
+
+  <section class="localrule">
+    <div class="lr-t">【 板規 / ローカルルール 】</div>
+    <div class="lr-l">◆ 本板為銀歌市周邊靈異・怪談・都市傳說情報交換用。</div>
+    <div class="lr-l">◆ 請勿張貼可特定個人之真實姓名、住址、電話。</div>
+    <div class="lr-l">◆ sage 進行。煽動・釣魚・連投者，無預警刪文。</div>
+  </section>
+
+  <main>
+    <section id="board-view">
+      <h2 class="bar">＿＿＿ 傳聞一覽 ＿＿＿</h2>
+      <div id="thread-list"><p class="dim">讀取中…</p></div>
+
+      <section class="newthread">
+        <h2 class="bar">■ 建立新串</h2>
+        <form id="new-thread-form" class="postform">
+          <p><label>標題：<input id="nt-title" maxlength="60" required size="40"></label></p>
+          <p>
+            <label>名前：<input id="nt-name" maxlength="30" value="無名氏" size="20"></label>
+            <label>mail：<input id="nt-mail" maxlength="30" size="20"></label>
+          </p>
+          <p><textarea id="nt-body" maxlength="1000" rows="5" cols="60" required></textarea></p>
+          <p><button type="submit">建立新串</button> <span id="nt-error" class="form-error"></span></p>
+        </form>
+      </section>
+    </section>
+
+    <section id="thread-view" hidden>
+      <p class="thread-nav"><a href="#">■ 回到傳聞一覽</a></p>
+      <h2 id="thread-title" class="thread-title"></h2>
+      <div id="posts"></div>
+
+      <section class="replyform">
+        <h2 class="bar">■ 回覆本串</h2>
+        <form id="reply-form" class="postform">
+          <p>
+            <label>名前：<input id="reply-name" maxlength="30" value="無名氏" size="20"></label>
+            <label>mail：<input id="reply-mail" maxlength="30" size="20"></label>
+          </p>
+          <p><textarea id="reply-body" maxlength="1000" rows="5" cols="60" required></textarea></p>
+          <p><button type="submit">書き込む</button> <span id="reply-error" class="form-error"></span></p>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <section id="gm-login" hidden>
+    <h2 class="bar">管理人</h2>
+    <p>
+      <input id="gm-email" type="email" placeholder="email" size="24">
+      <input id="gm-password" type="password" placeholder="password" size="16">
+      <button id="gm-login-btn" type="button">登入</button>
+      <span id="gm-login-error" class="form-error"></span>
+    </p>
+  </section>
+
+  <section id="gm-panel" hidden>
+    <h2 class="bar">GM 後台</h2>
+    <fieldset>
+      <legend>發文身分</legend>
+      <label>自訂 ID（留空＝自動）：<input id="gm-custom-id" maxlength="12" size="12"></label>
+      <button id="gm-reroll" type="button">重 roll ID seed</button>
+    </fieldset>
+    <fieldset>
+      <legend>preset 回應庫（只存本機，不上雲）</legend>
+      <input id="preset-file" type="file" accept=".json,application/json">
+      <button id="preset-clear" type="button">清除已匯入</button>
+      <div id="preset-list"></div>
+    </fieldset>
+    <fieldset>
+      <legend>遊戲內時鐘</legend>
+      <input id="gm-clock" type="datetime-local" value="2002-01-13T12:00">
+      <button id="gm-set-clock" type="button">設定「現在」</button>
+    </fieldset>
+    <fieldset>
+      <legend>本串管理（需在串內）</legend>
+      <button id="gm-sink" type="button">[沉]</button>
+      <button id="gm-pin" type="button">[推]</button>
+      <button id="gm-unmark" type="button">恢復普通</button>
+    </fieldset>
+    <fieldset>
+      <legend>世界</legend>
+      <button id="gm-reset" type="button">LOOP 重置（恢復種子狀態）</button>
+    </fieldset>
+    <p><span id="gm-msg" class="form-error"></span></p>
+    <p><button id="gm-logout" type="button">登出</button></p>
+  </section>
+
+  <footer><p class="dim">銀歌市靈異板　ぎんうた・ちゃんねる　2002</p></footer>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

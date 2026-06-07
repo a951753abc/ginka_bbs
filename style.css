@@ -1,0 +1,342 @@
+/* 2002 年 2ch 擬真。刻意保留窄版、低裝飾與舊式表單語彙。 */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #efefef;
+  color: #000;
+  font-family: "MS PGothic", "ＭＳ Ｐゴシック", "Microsoft JhengHei", "PingFang TC", "Hiragino Sans GB", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.wrap {
+  max-width: 980px;
+  padding: 6px 10px 80px;
+}
+
+a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+a:hover {
+  color: #ee0000;
+}
+
+.board-banner {
+  padding: 6px 0 4px;
+  text-align: center;
+}
+
+.board-banner h1 {
+  color: #f00;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 1px 1px 0 #ffd7d7;
+}
+
+.tagline {
+  color: #888;
+  font-size: 12px;
+  margin: 2px 0 0;
+}
+
+.nav {
+  border-bottom: 1px solid #cfcfcf;
+  font-size: 12px;
+  margin-bottom: 6px;
+  padding: 4px 2px;
+}
+
+.nav-sep {
+  color: #bbb;
+  margin: 0 4px;
+}
+
+.nav-count,
+.dim {
+  color: #777;
+  font-size: 12px;
+}
+
+.localrule {
+  background: #fffdf0;
+  border: 1px solid #d8d2a8;
+  color: #444;
+  font-size: 12px;
+  margin: 6px 0 10px;
+  padding: 6px 10px;
+}
+
+.lr-t {
+  color: #c00;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.lr-l {
+  line-height: 1.6;
+}
+
+.bar {
+  color: #008000;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin: 10px 0 6px;
+  text-align: center;
+}
+
+.thread-row {
+  border-bottom: 1px dotted #d6d6d6;
+  line-height: 1.7;
+  margin: 0;
+  padding: 3px 4px;
+}
+
+.thread-row .num {
+  color: #555;
+  margin-right: 3px;
+}
+
+.thread-row .marker {
+  color: #c00;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.thread-row .title {
+  font-weight: bold;
+}
+
+.thread-row .meta {
+  color: #008000;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.thread-title {
+  color: #f00;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 8px 0 10px;
+}
+
+.thread-nav {
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.post {
+  margin: 0;
+  padding: 5px 2px 9px;
+}
+
+.post-head {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.post-head .no {
+  color: #000;
+  font-weight: bold;
+}
+
+.post-head .name {
+  color: #008000;
+  font-weight: bold;
+}
+
+.post-head .stamp {
+  color: #000;
+}
+
+.post-body {
+  line-height: 1.5;
+  margin: 2px 0 0 22px;
+  white-space: normal;
+}
+
+.post.aborn .post-head {
+  color: #999;
+  font-style: italic;
+}
+
+.post.aborn .post-body {
+  color: #999;
+}
+
+.gm-del {
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+.newthread,
+.replyform {
+  border-top: 2px solid #b7b7b7;
+  margin-top: 18px;
+  padding-top: 10px;
+}
+
+.postform {
+  background: #f3f3ee;
+  border: 1px solid #c9c9c0;
+  padding: 8px 10px;
+}
+
+form p {
+  margin: 4px 0;
+}
+
+textarea,
+input,
+button {
+  font: inherit;
+  font-size: 13px;
+}
+
+textarea {
+  max-width: 86vw;
+}
+
+button {
+  background: linear-gradient(#fbfbfb, #dedede);
+  border: 1px solid #777;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 3px 12px;
+}
+
+button:hover {
+  background: linear-gradient(#fff, #e8e8e8);
+}
+
+.form-error {
+  color: #c00;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+#banner {
+  background: #ffffcc;
+  border: 1px solid #cc9900;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+}
+
+#fatal {
+  background: #ffdddd;
+  border: 1px solid #cc0000;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+}
+
+#gm-login {
+  border-top: 2px dashed #888;
+  margin-top: 24px;
+  padding-top: 4px;
+}
+
+#gm-panel {
+  background: #20242e;
+  box-shadow: -4px 0 18px rgba(0, 0, 0, .45);
+  color: #d6dcea;
+  font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+  font-size: 13px;
+  height: 100vh;
+  max-width: 92vw;
+  overflow-y: auto;
+  padding: 10px 14px 40px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 360px;
+  z-index: 20;
+}
+
+#gm-panel .bar {
+  color: #ff8a8a;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+}
+
+#gm-panel input,
+#gm-panel textarea {
+  background: #11141b;
+  border: 1px solid #3a4456;
+  color: #e6ebf5;
+}
+
+#gm-panel button {
+  background: #2a3142;
+  border-color: #455066;
+  color: #d6dcea;
+}
+
+#gm-panel button:hover {
+  background: #333c52;
+}
+
+fieldset {
+  border: 1px solid #3a4456;
+  margin: 8px 0;
+}
+
+legend {
+  color: #9fb3d6;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.preset-group {
+  margin: 4px 0;
+}
+
+.preset-group button {
+  display: block;
+  margin: 2px 0 2px 12px;
+  text-align: left;
+}
+
+footer {
+  margin-top: 32px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 6px 8px 60px;
+  }
+
+  .board-banner h1 {
+    font-size: 21px;
+  }
+
+  input,
+  textarea {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  #gm-panel {
+    left: 0;
+    max-width: none;
+    width: auto;
+  }
+}
