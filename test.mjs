@@ -71,6 +71,10 @@ test('parseBodyTokens: 純文字／全形＞＞／非錨點的 >', () => {
 test('seed.json: 形狀與長度規範', async () => {
   const seed = JSON.parse(await readFile(new URL('./seed.json', import.meta.url), 'utf8'));
   const gameNow = parseGameTime(seed.gameNow);
+  let totalPosts = 0;
+  let sagePosts = 0;
+  let anchorPosts = 0;
+  let tombstones = 0;
   assert.ok(Array.isArray(seed.threads) && seed.threads.length >= 6);
   for (const t of seed.threads) {
     assert.ok(t.tid && /^[\w-]+$/.test(t.tid), t.tid);
@@ -79,6 +83,10 @@ test('seed.json: 形狀與長度規範', async () => {
     assert.ok(t.posts.length >= 1, t.tid);
     let prev = 0;
     for (const p of t.posts) {
+      totalPosts += 1;
+      if (p.mail === 'sage') sagePosts += 1;
+      if (/(?:>>|＞＞)\d{1,4}/.test(p.body)) anchorPosts += 1;
+      if (p.name === 'あぼーん' && p.body === 'あぼーん') tombstones += 1;
       assert.ok(p.name.length <= 30 && p.mail.length <= 30, t.tid);
       assert.ok(p.idStr.length <= 12, t.tid);
       assert.ok(p.body.length <= 1000 && !p.body.includes('\r'), t.tid);
@@ -88,4 +96,8 @@ test('seed.json: 形狀與長度規範', async () => {
       prev = ms;
     }
   }
+  assert.ok(totalPosts >= 60 && totalPosts <= 80, 'seed 貼文量需像已有人使用');
+  assert.ok(sagePosts >= 8, 'seed 需要足夠 sage 使用痕跡');
+  assert.ok(anchorPosts >= 12, 'seed 需要足夠 >>n 引用痕跡');
+  assert.ok(tombstones >= 1, 'seed 需要至少一則あぼーん痕跡');
 });
