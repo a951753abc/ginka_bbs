@@ -573,7 +573,7 @@ makeArmedHandler($('gm-reset'), 'LOOP 重置（恢復種子狀態）', loopReset
 async function loopReset() {
   if (!db) return gmMsg('Firebase 尚未設定');
   try {
-    const res = await fetch('./seed.json');
+    const res = await fetch(`./seed.json?v=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('seed.json 載入失敗 HTTP ' + res.status);
     const seed = await res.json();
     const newLoopId = (meta?.loopId ?? 0) + 1;
